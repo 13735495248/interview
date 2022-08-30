@@ -14,8 +14,7 @@
     background: skyblue;
     height: 50px;
     display: grid;
-    justify-content: center;
-    align-items: center;
+    place-items: center;
 }
 
 .myinput>.search {
@@ -48,6 +47,24 @@
     margin-left: 20px;
 }
 
+.myinput>.search>.test{
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.myinput>.search>.test>.default{
+    margin-left: 5px;
+    width: 15px;
+    height: 15px;
+    background: white;
+    border: 3px solid #666;
+    border-radius: 50%;
+}
+.myinput>.search>.test>.select{
+    background: rgb(41, 201, 41);
+}
+
 .content {
     flex: 1;
     overflow-y: scroll;
@@ -62,4 +79,8 @@
     color: #4b5cc4;
     width: 60vw;
     word-wrap: break-word
+}
+
+.random_qus{
+    margin-left: 20px;
 }

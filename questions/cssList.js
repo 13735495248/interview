@@ -79,4 +79,24 @@ let cssList = [
         >通配符>继承
         `
     },
+
+    {
+        question:`
+        7.什么是BFC,如何给一个元素开启BFC,BFC有什么作用?
+        `,
+        answer:`
+        BFC:Block Formatting Context(块级格式化上下文),指一个独立的
+        隔离的容器,该容器里面的子元素不会对容器外元素产生影响.</br>
+        开启BFC的方法:</br>
+         1.overflow:hidden/scroll/auto(非visible)</br>
+         2.display:inline-block/table-cell/flex(非inline)</br>
+         3.position:absolute/fixed(非relative)</br>
+         4.float:left/right</br>
+         BFC的作用:</br>
+         1.可以解决子元素浮动导致的父元素高度坍塌问题(当父元素不设置高度,
+         子元素就会撑大父元素的高度.这时给子元素添加浮动或绝对定位的话,
+         父元素就会出现高度塌陷问题)</br>
+         2.可以解决垂直方向外边距合并问题
+        `
+    },
 ]

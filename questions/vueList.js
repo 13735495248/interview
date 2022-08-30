@@ -171,6 +171,7 @@ let vueList = [
         15.mvvm框架是什么?
         `,
         answer:`
+        mvvm指m:Model,v:View,vm:ViewModel
         vue是实现了双向数据绑定的mvvm框架，当视图改变更新模型层，
         当模型层改变更新视图层。在vue中，使用了双向绑定技术，
         就是View的变化能实时让Model发生变化，
@@ -305,42 +306,48 @@ let vueList = [
     },
     {
         question:`
-        
+        24.vue-router有哪两种模式,它们的区别是什么?
         `,
         answer:`
-        
+        vue-router有hash和history两种模式.</br>
+        它们的区别体现在3个方面:<br/>
+        1.外观 : history模式的path路径不带#号，hash有#号<br/>
+        2.原理 : hash模式使用onhashchange方法, history使用pushState和replaceState方法,
+        导致有兼容性差异. hash模式兼容性更好一点(因为history使用的pushState方法,
+        对浏览器有一定要求)<br/>
+        3.history模式下,刷新页面会向服务器发送请求,如果服务器没配置相应的路由路径
+        会报404错误,因此使用history需要服务端将不存在的路由路径重定向到根页面
         `
     },
     {
         question:`
-        
+        25.谈谈你对webpack的理解?
         `,
         answer:`
-        
+        webpack是一个模块打包工具,它的作用主要包括:<br/>
+        1.将多个文件进行合并，减少HTTP请求数<br/>
+        2.压缩,减小应用体积<br/>
+        3.将浏览器识别不了的后缀为.ts,.less,.sass,.vue等文件,
+        转换为浏览器能识别的js,css文件<br/>
+        webpack有5个比较核心的概念:<br/>
+        1.Entry<br/>
+        入口,规定webpack以哪个文件为起点开始打包,
+        入口一般是src文件夹下面的main.js文件
+        <br/>
+        2.Output<br/>
+        输出,webpack打包后的文件输出到哪里去
+        <br/>
+        3.Loader<br/>
+        Loader可以让webpack去处理那些非js文件,因为webpack自身
+        只能认识js,loader的作用是加载资源
+        <br/>
+        4.Plugins<br/>
+        插件,扩展webpack的功能,如使用插件进行压缩
+        <br/>
+        5.Mode<br/>
+        模式主要有两种:
+            开发模式:development
+            生产模式:production
         `
-    },
-    {
-        question:`
-        
-        `,
-        answer:`
-        
-        `
-    },
-    {
-        question:`
-        
-        `,
-        answer:`
-        
-        `
-    },
-    {
-        question:`
-        
-        `,
-        answer:`
-        
-        `
-    },
+    }
 ]

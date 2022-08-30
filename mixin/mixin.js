@@ -1,4 +1,8 @@
 let mixin = {
+  mounted() {
+    /* 设置题目闭包函数 */
+    this.qus_block = this.random_qus();
+  },
   methods: {
     /* 搜索方法 */
     search() {
@@ -57,20 +61,63 @@ let mixin = {
       switch (index) {
         case 0:
           this.list = [...jsList, ...cssList, ...vueList];
+          /* 清空随机出题闭包函数,并赋为新函数 */
+          this.qus_block = null;
+          this.qus_block = this.random_qus();
           break;
         case 1:
           this.list = jsList;
+          this.qus_block = null;
+          this.qus_block = this.random_qus();
           break;
         case 2:
           this.list = cssList;
+          this.qus_block = null;
+          this.qus_block = this.random_qus();
           break;
         case 3:
           this.list = vueList;
+          this.qus_block = null;
+          this.qus_block = this.random_qus();
           break;
         default:
           break;
       }
     },
+
+    /* 设置模式 */
+    setTestMode() {
+      this.testMode = !this.testMode;
+    },
+    /* 随机出题 */
+    random_qus() {
+      /* 深拷贝一份题目list */
+      this.qusList = JSON.parse(JSON.stringify(this.list))
+      return () => {
+        /* 如果面试题抽完了,从头开始 */
+        if(this.qusList.length == 0){
+          this.qusList = JSON.parse(JSON.stringify(this.list))
+        }
+        /* 隐藏列表 */
+        this.isShowList = false;
+        /* 随机索引 */
+        let index = Math.floor(Math.random() * this.qusList.length);
+        /* 随机题目 */
+        this.qus = this.qusList[index];
+        /* 删除出现过的题目 */
+        this.qusList = this.qusList.filter(item => {
+          return item.question !== this.qus.question;
+        })
+      }
+
+    },
+    /**
+    继续背诵
+    **/
+    goonRecite() {
+      /* 显示列表,隐藏出题页面 */
+      this.isShowList = true;
+    }
 
   }
 }

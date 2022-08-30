@@ -65,7 +65,7 @@ let jsList = [
     },
     {
         question:`
-        7.promise是什么?promise作用?await async是什么?作用呢?
+        7.0promise是什么?promise作用?await async是什么?作用呢?
         `,
         answer:`
         promise是异步编程的一种解决方案,在js中,异步编程主要有三种方式:
@@ -79,6 +79,43 @@ let jsList = [
         let b = await foo2();<br/>
         let c = await foo3();<br/>
         } 
+        `
+    },
+    {
+        question:`
+        7.1谈谈promise的状态以及状态如何变化
+        `,
+        answer:`
+        promise有三种状态:准备状态(pending),成功状态(resolved),
+        失败状态(rejected)</br>
+        状态变化只有两种情况:</br>
+        1.从准备状态变为成功状态;</br>
+        2.从准备状态变为失败状态</br>
+        promise状态改变就会一直保持这个状态,不能从成功状态变失败状态,
+        也不能从失败变成功,状态也是不可逆的,即也不能从成功状态变回准备
+        状态或从失败状态变回准备状态.
+        `
+    },
+    {
+        question:`
+        7.2说说promise常用的api(方法)?
+        `,
+        answer:`
+        1.resolve:返回一个成功状态的promise对象</br>
+        2.reject:返回一个失败状态的promise对象</br>
+        3.Promise.all([promise1,promise2,promise3,...]):
+        all方法可以传入多个promise对象,所有promise对象都是
+        成功状态,才会返回一个成功状态的数组,一旦有任何一个promise对象
+        是失败状态,就会直接返回一个失败状态的promise对象.</br>
+        4.Promise.race([promise1,promise2,promise3,...]):
+        race方法可以传入多个promise对象,与all不同的是,race会返回一个
+        promise对象,该对象的状态由第一个成功或失败的promise对象的状态决定,
+        即第一个执行完的promise是成功状态那么返回的promise就是成功状态,
+        否则就是失败状态.</br>
+        </br>
+        all方法的使用场景:</br>
+        如果想让多个接口请求完成再去做一些其他操作,可以将这些接口请求作为参数
+        传到Promise.all()方法中即可</br>
         `
     },
     {
@@ -283,7 +320,6 @@ let jsList = [
         `
     },
     
-    
     {
         question:`
          25.判断数据类型的方法?
@@ -304,43 +340,18 @@ let jsList = [
         `
     },
     {
-        question:`
-
-        `,
+        question:`26.什么是节流和防抖?作用是什么?`,
         answer:`
-
+        防抖和节流都是用来控制某个函数在一定时间内触发的次数,
+        两者都是为了减少触发频率,以便提高性能.<br/>
+        防抖:<br/>
+        某一高频事件不断被触发时,仅在最后一次真正执行事件处理代码
+        防抖就类似回城，打断就得重新回<br/>
+        节流:<br/>
+        某一高频事件被触发时,确保在n秒内只执行一次
+        节流就类似有冷却时间的技能,使用一次技能后,需要等
+        冷却时间到了才能用
+        
         `
-    },
-    {
-        question:`
-
-        `,
-        answer:`
-
-        `
-    },
-    {
-        question:`
-
-        `,
-        answer:`
-
-        `
-    },
-    {
-        question:`
-
-        `,
-        answer:`
-
-        `
-    },
-    {
-        question:`
-
-        `,
-        answer:`
-
-        `
-    },
+    }
 ]
